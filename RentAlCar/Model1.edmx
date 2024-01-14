@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RentAlCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblAraclar">
+          <Key>
+            <PropertyRef Name="Arabaid" />
+          </Key>
+          <Property Name="Arabaid" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullaniciid" Type="tinyint" />
+          <Property Name="Vasita" Type="varchar" MaxLength="8" />
+          <Property Name="Yil" Type="char" MaxLength="4" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="Yakit" Type="varchar" MaxLength="6" />
+          <Property Name="Vites" Type="varchar" MaxLength="8" />
+          <Property Name="AracDurumu" Type="varchar" MaxLength="10" />
+          <Property Name="KM" Type="int" />
+          <Property Name="KasaTipi" Type="varchar" MaxLength="30" />
+          <Property Name="MotorGücü" Type="nvarchar" MaxLength="15" />
+          <Property Name="MotorHacmi" Type="nvarchar" MaxLength="15" />
+          <Property Name="Cekis" Type="varchar" MaxLength="15" />
+          <Property Name="Renk" Type="nvarchar" MaxLength="20" />
+          <Property Name="Kimden" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TblKullanicilar">
+          <Key>
+            <PropertyRef Name="Kullaniciid" />
+          </Key>
+          <Property Name="Kullaniciid" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAd" Type="varchar" MaxLength="30" />
+          <Property Name="KullaniciSoyad" Type="varchar" MaxLength="30" />
+          <Property Name="KullaniciDogumTarih" Type="date" />
+          <Property Name="KullaniciEPosta" Type="nvarchar" MaxLength="100" />
+          <Property Name="KullaniciSifre" Type="varchar" MaxLength="50" />
+          <Property Name="KullaniciCinsiyet" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityContainer Name="RentAlCarModelStoreContainer">
+          <EntitySet Name="TblAraclar" EntityType="Self.TblAraclar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblKullanicilar" EntityType="Self.TblKullanicilar" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentAlCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblAraclar">
+          <Key>
+            <PropertyRef Name="Arabaid" />
+          </Key>
+          <Property Name="Arabaid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullaniciid" Type="Byte" />
+          <Property Name="Vasita" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Yil" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Yakit" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Vites" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="AracDurumu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="KM" Type="Int32" />
+          <Property Name="KasaTipi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MotorGücü" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MotorHacmi" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Cekis" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Renk" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Kimden" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblKullanicilar">
+          <Key>
+            <PropertyRef Name="Kullaniciid" />
+          </Key>
+          <Property Name="Kullaniciid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciSoyad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciDogumTarih" Type="DateTime" Precision="0" />
+          <Property Name="KullaniciEPosta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciCinsiyet" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="RentAlCarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblAraclar" EntityType="Self.TblAraclar" />
+          <EntitySet Name="TblKullanicilar" EntityType="Self.TblKullanicilar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentAlCarModelStoreContainer" CdmEntityContainer="RentAlCarEntities">
+          <EntitySetMapping Name="TblAraclar">
+            <EntityTypeMapping TypeName="RentAlCarModel.TblAraclar">
+              <MappingFragment StoreEntitySet="TblAraclar">
+                <ScalarProperty Name="Arabaid" ColumnName="Arabaid" />
+                <ScalarProperty Name="Kullaniciid" ColumnName="Kullaniciid" />
+                <ScalarProperty Name="Vasita" ColumnName="Vasita" />
+                <ScalarProperty Name="Yil" ColumnName="Yil" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Yakit" ColumnName="Yakit" />
+                <ScalarProperty Name="Vites" ColumnName="Vites" />
+                <ScalarProperty Name="AracDurumu" ColumnName="AracDurumu" />
+                <ScalarProperty Name="KM" ColumnName="KM" />
+                <ScalarProperty Name="KasaTipi" ColumnName="KasaTipi" />
+                <ScalarProperty Name="MotorGücü" ColumnName="MotorGücü" />
+                <ScalarProperty Name="MotorHacmi" ColumnName="MotorHacmi" />
+                <ScalarProperty Name="Cekis" ColumnName="Cekis" />
+                <ScalarProperty Name="Renk" ColumnName="Renk" />
+                <ScalarProperty Name="Kimden" ColumnName="Kimden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblKullanicilar">
+            <EntityTypeMapping TypeName="RentAlCarModel.TblKullanicilar">
+              <MappingFragment StoreEntitySet="TblKullanicilar">
+                <ScalarProperty Name="Kullaniciid" ColumnName="Kullaniciid" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="KullaniciSoyad" ColumnName="KullaniciSoyad" />
+                <ScalarProperty Name="KullaniciDogumTarih" ColumnName="KullaniciDogumTarih" />
+                <ScalarProperty Name="KullaniciEPosta" ColumnName="KullaniciEPosta" />
+                <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+                <ScalarProperty Name="KullaniciCinsiyet" ColumnName="KullaniciCinsiyet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
